@@ -3,6 +3,11 @@ import { StateHookCheckbox } from './hooks/StateHookCheckbox';
 import { StateBatchUpdate } from './hooks/StateBatchUpdate';
 import { SimpleContextComponent } from './hooks/context/SimpleContextComponent';
 import { MultiContextComponent } from './hooks/context/MultiContextComponent';
+import { SimpleRefHook } from './hooks/ref/SimpleRefHook';
+import { DOMElementRef } from './hooks/ref/DOMElementRef';
+import { PassRefParent } from './hooks/ref/PassRefParent';
+import { ImperativeHandleHandle } from './hooks/ref/ImperativeHandleComponent';
+import { SimpleUseEffectComponent } from './hooks/effect/SimpleUseEffectComponent';
 
 export default function Home() {
   return (
@@ -31,6 +36,28 @@ export default function Home() {
           <h1>Use multiple context</h1>
           <MultiContextComponent />
         </div>
+        <br></br>
+        <section>
+          <h1>Use simple ref</h1>
+          <SimpleRefHook />
+        </section>
+        <br></br>
+        <section>
+          <h1>Use DOM element ref</h1>
+          <DOMElementRef />
+        </section>
+        <section>
+          <h1>Use child DOM element ref</h1>
+          <PassRefParent />
+        </section>
+        <section>
+          <h1>Imperative Handle</h1>
+          <ImperativeHandleHandle />
+        </section>
+        <section>
+          <h1>Use effect component</h1>
+          <SimpleUseEffectComponent />
+        </section>
       </div>
     </main>
   );

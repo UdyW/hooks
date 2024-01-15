@@ -21,8 +21,12 @@ const CredentialsContext = createContext<ContextProps>(null);
 
 const ThemeContext = createContext<string>(null);
 
-const ThemeSelect: React.FC = () => {
-  const [theme, setTheme] = useState<string>('light');
+interface ThemeProps {
+  theme: string;
+  setTheme: () => void;
+}
+const ThemeSelect: React.FC = ({ theme, setTheme }: ThemeProps) => {
+  //const [theme, setTheme] = useState<string>('light');
 
   return (
     <>
@@ -92,16 +96,7 @@ const MultiContextComponent: React.FC = () => {
     <CredentialsContext.Provider value={{ credentials, setCredentials }}>
       <ThemeContext.Provider value={theme}>
         <LoginForm />
-        <label>
-          <input
-            type='checkbox'
-            checked={theme === 'dark'}
-            onChange={(e) => {
-              setTheme(e.target.checked ? 'dark' : 'light');
-            }}
-          />
-          Use dark theme
-        </label>
+        <ThemeSelect theme={theme} setTheme={setTheme} />
       </ThemeContext.Provider>
       <LoginButton text='Log in' />
     </CredentialsContext.Provider>
